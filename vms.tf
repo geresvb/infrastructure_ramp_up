@@ -132,6 +132,6 @@ resource "azurerm_linux_virtual_machine" "ManagementVM" {
     version   = "latest"
   }
 
-  #custom_data = base64encode(file("./cloudinit/docker.yaml"))
+  custom_data = base64encode(file("./cloudinit/management.yaml"))
 
 }
