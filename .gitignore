@@ -3,5 +3,5 @@ keys/
 .terraform.*
 terraform.tfstate
 terraform.tfstate.backup
-cloudinit/database/.env
+**/.env
 terraform.tfvars
