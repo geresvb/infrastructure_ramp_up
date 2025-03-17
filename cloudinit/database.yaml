@@ -20,3 +20,6 @@ runcmd:
   - docker --version
   - docker-compose --version
   - sudo docker pull postgres
+  - sudo apt install git -y
+  - sudo git clone https://github.com/geresvb/dbrampup /home/adminuser/dbrampup
+  - sudo docker-compose -f /home/adminuser/dbrampup/docker-compose.yml up -d
