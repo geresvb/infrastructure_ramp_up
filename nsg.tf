@@ -2,6 +2,18 @@ resource "azurerm_network_security_group" "private_sg" {
   name                = "private_sg"
   location            = azurerm_resource_group.RG_1.location
   resource_group_name = azurerm_resource_group.RG_1.name
+  #Allow 5432
+  security_rule {
+    name                       = "Allow_5342_Everywhere"
+    priority                   = 1000
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "5342"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
 
   # Allow SSH from anywhere to 10.0.0.20 and 10.0.0.28
   security_rule {
@@ -58,16 +70,16 @@ resource "azurerm_network_security_group" "private_sg" {
   }
 
   # Deny all other inbound traffic
-  security_rule {
-    name                       = "Deny_All_Other_Inbound"
-    priority                   = 2000
-    direction                  = "Inbound"
-    access                     = "Deny"
-    protocol                   = "*"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
+  # security_rule {
+  #   name                       = "Deny_All_Other_Inbound"
+  #   priority                   = 2000
+  #   direction                  = "Inbound"
+  #   access                     = "Deny"
+  #   protocol                   = "*"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "*"
+  #   source_address_prefix      = "*"
+  #   destination_address_prefix = "*"
+  # }
 
 }
