@@ -19,4 +19,4 @@ runcmd:
   - sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
   - docker --version
   - docker-compose --version
-  - sudo docker pull geresvb/backend
+  - sudo docker pull geresvb/backend:1.0
